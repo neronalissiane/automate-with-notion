@@ -44,7 +44,6 @@ jobs:
             -X POST \
             "https://api.notion.com/v1/databases/$NOTION_DATABASE_ID/query" \
             -d '{"page_size":1}' | tee http_code.txt
-
           code=$(cat http_code.txt)
           if [ "$code" != "200" ]; then
             echo "Database query failed with HTTP $code. Check database ID and integration sharing." >&2
